@@ -1,0 +1,19 @@
+    #posts{
+        display: flex;
+        flex-direction: column;
+        gap:10px
+    }
+    ul{
+        background-color: aliceblue;
+        margin-left: -1.5%;
+    }
+    li{
+        display: flex;
+        width: 100%;
+        background-color: aliceblue;
+        gap: 10px;
+    }
+    .paragrafo{
+        margin-left: 3px;
+        background-color: aqua;
+    }
