@@ -1,8 +1,7 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import "./style.css"
 import { AppContext, IAppContext } from '../AppContext/AppContext';
 import Root from '../Note/note';
-var liked = false
 function Body(){
     const { jsonData, setJsonData } = useContext(AppContext) as IAppContext
     return (
