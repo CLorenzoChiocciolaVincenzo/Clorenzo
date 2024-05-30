@@ -1,9 +1,16 @@
 import React from "react";
 
 interface IListElement {
-    id: number,
-    title: string,
     body: string,
+    id: number, 
+    title: string,
+    tags: string[],
+    reactions: {
+        likes: number,
+        dislikes: number
+    },
+    views: number,
+    userId: number
 }
 
 function ListElement(props: IListElement) {
@@ -12,6 +19,11 @@ function ListElement(props: IListElement) {
             {props.id}
             {props.title}
             {props.body}
+            {props.tags}
+            {props.reactions.likes}
+            {props.reactions.dislikes}
+            {props.views}
+            {props.userId}
         </li>
     )
 }

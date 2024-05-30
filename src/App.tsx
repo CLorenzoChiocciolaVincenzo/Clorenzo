@@ -8,7 +8,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   const [jsonData, setJsonData] = useState<Root[]>()
-
+  
   const propTypes: IAppContext= {jsonData, setJsonData}
   
   useEffect(() => {

@@ -1,3 +1,6 @@
 .nomecognome{
     background-color: chocolate;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

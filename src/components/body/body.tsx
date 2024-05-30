@@ -1,22 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import "./style.css"
 import { AppContext, IAppContext } from '../AppContext/AppContext';
 import Root from '../Note/note';
-
+var liked = false
 function Body(){
-    const { jsonData } = useContext(AppContext) as IAppContext
+    const { jsonData, setJsonData } = useContext(AppContext) as IAppContext
     return (
         <div className="posts">
             <ul id="posts">
-            {jsonData?.map((item: Root) => (
+            {jsonData?.slice().reverse().map((item: Root) => (
           <li key={item.id}>
-            <p className='paragrafo'>Titolo: <br/>{item.title}</p>
-            <p className='paragrafo'>Contenuto: <br/>{item.body}</p>
-            <p className='paragrafo'>Like: <br/>{item.reactions.likes}<br/> Dislike: <br/>{item.reactions.dislikes}</p>
+            <br></br>
+            <p className='paragrafo notext' id="titi">🧑🏼 {item.id} <br/>📝Titolo: <br/>{item.title}</p>
+            <p className='paragrafo as notext'>💬Contenuto: <br/>{item.body}<br/><br/> 🎯Tags: {item.tags.join('  ')}</p>
+            <p className='paragrafo notext'>
+              <span onClick={() => {
+                  item.reactions.likes += 1; setJsonData([...jsonData]);
+              }}>👍 {item.reactions.likes}</span>
+              <span onClick={() => {
+                item.reactions.dislikes += 1; setJsonData([...jsonData])
+                }}><br/>
+              👎 {item.reactions.dislikes}</span><br/> 👀 {item.views}</p>
           </li>
         ))}
             </ul>
         </div>
+        
     )
+    
 }
 export default Body
