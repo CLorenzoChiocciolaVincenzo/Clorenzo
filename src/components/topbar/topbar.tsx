@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import "./style.css"
 import { AppContext, IAppContext } from '../AppContext/AppContext';
+
 function Topbar(){
     const { jsonData, setJsonData } = useContext(AppContext) as IAppContext
     const [titleContent, setTitleContent] = useState<string>('')
@@ -8,7 +9,17 @@ function Topbar(){
     const [tagsContent, setTagsContent] = useState<string>('')
     const [loggContent, setLoggContent] = useState<string>('')
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    if (bodyContent === ' '){
+        setBodyContent('');
+    }if (titleContent === ' '){
+        setTitleContent('');
+    }if (tagsContent === ' '){
+        setTagsContent('');
+    } if (loggContent === ' '){
+        setLoggContent('')
+    }
     function aggiungere(){
+        
         if (bodyContent === '' && titleContent === '' && tagsContent === ''){
             alert("I campi sono obbligatori"); return
         }if (bodyContent === '' && titleContent === ''){alert("I campi sono obbligatori"); return
